@@ -27,6 +27,11 @@ The application uses a default username and password:
 After entering the correct credentials, you will be able to use the application to track acceptances.
 Once successful authentication with the default credentials, the user will be able to change the pass word to their own.
 
+### Inside the application you can:
+1. View your statuses for applications (once set)
+2. Change application statuses
+3. Stay secure with a username and password
+
 ## Installation and Running the Program
 
 1. Clone or download the repository.

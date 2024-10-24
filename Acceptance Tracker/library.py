@@ -108,7 +108,7 @@ def view_status():
 
 
 def save_status():
-    with open('status.txt', 'w') as file:
+    with open('saves/status.txt', 'w') as file:
         file.write(f"OU status: {ou_status}\n")
         file.write(f"CSU status: {csu_status}\n")
         file.write(f"CU Boulder status: {cu_status}\n")
@@ -122,7 +122,7 @@ def save_status():
 def load_status():
     global ou_status, csu_status, cu_status, tt_status, tr_status, du_status, mi_status
     try:
-        with open('status.txt', 'r') as file:
+        with open('saves/status.txt', 'r') as file:
             lines = file.readlines()
             for line in lines:
                 if 'OU status' in line:
@@ -168,7 +168,7 @@ def opening():
 
 def authentication():
 
-    with open('credentials.txt') as f:
+    with open('saves/credentials.txt') as f:
         correct_username, correct_password = f.read().split('\n')
     print(correct_username, correct_password)
     print("Please enter your username and password below.")
@@ -188,6 +188,6 @@ def set_user_pw():
     if check:
         correct_username = input("Enter a new username: ")
         correct_password = pwinput.pwinput("Enter a new password: ", "*")
-        with open('credentials.txt', 'w') as f:
+        with open('saves/credentials.txt', 'w') as f:
             f.write(f"{correct_username}\n{correct_password}")
         print("Credentials saved successfully.")
