@@ -1,69 +1,8 @@
-#from library import view_status, change_status, save_status, load_status, default, opening
-# import time
-#
-# def main():
-#     opening()
-#     is_running = True
-#     load_status()
-#     while is_running:
-#         print("")
-#         print("---------------------------")
-#         print("What would you like to do?")
-#         print("---------------------------")
-#         print("     1. View status")
-#         print("     2. Change status")
-#         print("     3. Save and exit")
-#         print("     4. Reset to defaults")
-#         user_choice = input("Enter your choice (1/2/3/4): ")
-#         print("")
-#         while user_choice not in ["1", "2", "3", "4"]:
-#             print("Invalid input.")
-#             user_choice = input("Enter your choice (1/2/3/4): ")
-#         if user_choice == "1":
-#             print("Viewing status...")
-#             time.sleep(0.75)
-#             view_status()
-#         elif user_choice == "2":
-#             print("Loading change_status UI...")
-#             time.sleep(0.75)
-#             change_status()
-#             print("Status is now:")
-#             print("")
-#             view_status()
-#         elif user_choice == "3":
-#             print("Saving...")
-#             time.sleep(1)
-#             save_status()
-#             print("Exiting...")
-#
-#             break
-#         elif user_choice == "4":
-#             print("Resetting to default...")
-#             time.sleep(1)
-#             default()
-#             print("")
-#             print("Reset complete.")
-#
-#
-#         user_pick = input("Would you like another action? (Y/N): ").lower()
-#         while user_pick not in ["y", "n"]:
-#             print("Invalid input.")
-#             user_pick = input("Would you like another action (Y/N): ").lower()
-#         if user_pick == "n":
-#             print("Saving...")
-#             save_status()
-#             time.sleep(1)
-#             print("Exiting...")
-#             is_running = False
-#
-#
-# if __name__ == "__main__":
-#     main()
-#
+#Main Acceptance tracker Script
 from library import *
 import time
 from colorama import Fore, Style, init
-import getpass
+import pwinput
 # Initialize colorama for coloring in terminal
 init(autoreset=True)
 
