@@ -1,4 +1,4 @@
-# from library import view_status, change_status, save_status, load_status, default, opening
+#from library import view_status, change_status, save_status, load_status, default, opening
 # import time
 #
 # def main():
@@ -60,20 +60,24 @@
 # if __name__ == "__main__":
 #     main()
 #
-from library import view_status, change_status, save_status, load_status, default, opening
+from library import *
 import time
 from colorama import Fore, Style, init
-
+import getpass
 # Initialize colorama for coloring in terminal
 init(autoreset=True)
 
 
 def main():
     opening()
+    authenticate = authentication()
+    while not authenticate:
+        print("Incorrect username or password. Please try again.")
+        authenticate = authentication()
     is_running = True
     load_status()
 
-    while is_running:
+    while is_running and authenticate:
         print(Fore.CYAN + """
         ╔═════════════════════════════════════════╗
         ║       What would you like to do?        ║
@@ -82,15 +86,17 @@ def main():
         ║     2. Change status                    ║
         ║     3. Save and exit                    ║
         ║     4. Reset to defaults                ║
+        ║     5. Change password                  ║
         ╚═════════════════════════════════════════╝
+
         """)
 
-        user_choice = input(Fore.YELLOW + "Enter your choice (1/2/3/4): ")
+        user_choice = input(Fore.YELLOW + "Enter your choice (1/2/3/4/5): ")
         print("")
 
-        while user_choice not in ["1", "2", "3", "4"]:
+        while user_choice not in ["1", "2", "3", "4", "5"]:
             print(Fore.RED + "Invalid input.")
-            user_choice = input(Fore.YELLOW + "Enter your choice (1/2/3/4): ")
+            user_choice = input(Fore.YELLOW + "Enter your choice (1/2/3/4/5): ")
 
         if user_choice == "1":
             print(Fore.CYAN + "Viewing status...")
@@ -117,6 +123,11 @@ def main():
             time.sleep(1)
             default()
             print(Fore.GREEN + "Reset complete.")
+
+        elif user_choice == "5":
+            print("Opening password change UI...")
+            time.sleep(0.75)
+            set_user_pw()
 
         user_pick = input(Fore.YELLOW + "Would you like another action? (Y/N): ").lower()
 

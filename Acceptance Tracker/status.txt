@@ -1,7 +1,7 @@
-OU status: Accepted
-CSU status: Accepted
+OU status: Under Review
+CSU status: Under Review
 CU Boulder status: Under Review
-Texas Tech status: Accepted
+Texas Tech status: Under Review
 Trinity status: Under Review
 DU status: Under Review
 Mines status: Under Review

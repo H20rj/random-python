@@ -264,10 +264,9 @@
 #     print("Welcome to the Acceptance Tracker!")
 #     print("The acceptance tracker is an exciting tool that allows me to keep track of where I am in my acceptance process.")
 
-
 import time
 from colorama import Fore
-
+import pwinput
 ou_status = 'Under Review'
 csu_status = 'Under Review'
 cu_status = 'Under Review'
@@ -407,6 +406,7 @@ def load_status():
         print(Fore.GREEN + "Status loaded successfully.")
     except FileNotFoundError:
         print(Fore.RED + "No saved status found. Using default values.")
+        default()
 
 
 def default():
@@ -428,3 +428,30 @@ def opening():
     ║   Track your college application status         ║
     ╚═════════════════════════════════════════════════╝
     """)
+
+
+def authentication():
+
+    with open('credentials.txt') as f:
+        correct_username, correct_password = f.read().split('\n')
+    print(correct_username, correct_password)
+    print("Please enter your username and password below.")
+    username = input("Username: ")
+    password = pwinput.pwinput("Password: ", "*")
+
+    if username == correct_username and password == correct_password:
+        print("Authentication successful.")
+        return True
+    else:
+        print("Authentication failed. Please try again.")
+        return False
+
+def set_user_pw():
+
+    check = authentication()
+    if check:
+        correct_username = input("Enter a new username: ")
+        correct_password = pwinput.pwinput("Enter a new password: ", "*")
+        with open('credentials.txt', 'w') as f:
+            f.write(f"{correct_username}\n{correct_password}")
+        print("Credentials saved successfully.")
