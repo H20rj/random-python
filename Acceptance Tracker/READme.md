@@ -35,10 +35,10 @@ Once successful authentication with the default credentials, the user will be ab
 4. Run the Python script.
 
 ```bash
-python <script_name>.py
+python main.py
 ```
 
-Replace `<script_name>` with the actual name of your Python script.
+
 
 ## About
 
