@@ -1,8 +1,8 @@
 #Main Acceptance tracker Script
 from library import *
 import time
-from colorama import Fore, Style, init
-import pwinput
+from colorama import Fore, init
+
 # Initialize colorama for coloring in terminal
 init(autoreset=True)
 

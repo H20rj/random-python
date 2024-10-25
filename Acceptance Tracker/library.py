@@ -170,7 +170,6 @@ def authentication():
 
     with open('saves/credentials.txt') as f:
         correct_username, correct_password = f.read().split('\n')
-    print(correct_username, correct_password)
     print("Please enter your username and password below.")
     username = input("Username: ")
     password = pwinput.pwinput("Password: ", "*")
