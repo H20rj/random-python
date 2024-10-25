@@ -1,3 +1,5 @@
+# **Not Currently working in Terminal. Must use pycharm. Works fine on the local mac where the files are but when I tried to clone the files on my pc none on the imports worked. Including library.py
+
 # Acceptance Tracker
 
 
