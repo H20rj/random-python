@@ -65,7 +65,7 @@ def change_status():
         '4': 'Waitlisted',
         '5': 'Deferred',
         '6': 'Committed',
-        '7': 'Pending Scholarship Offer',
+        '7': 'Pending Scholarship',
         '69': 'LOL!!! 69! so funny!'
     }
 

@@ -2,7 +2,20 @@ import time
 import customtkinter
 from colorama import Fore
 from library import ou_status, csu_status, cu_status, tt_status, tr_status, du_status, mi_status
-
+from datetime import datetime
+from sys import platform
+from os.path import exists
+from os import system
+if platform == 'darwin':
+    if not exists("saves/version.txt"):
+        with open("saves/version.txt", "w") as f:
+            f.write(str(datetime.now()))
+        system("python3 -m pip install -r saves/requirements.txt")
+if platform == 'win32':
+    if not exists("saves/version.txt"):
+        with open("saves/version.txt", "w") as f:
+            f.write(str(datetime.now()))
+        system("py -m pip install -r saves/requirements.txt")
 try:
     with open('saves/status.txt', 'r') as file:
         lines = file.readlines()
@@ -115,7 +128,7 @@ def change_status_gui():
     school_dropdown.place(relx = 0.5,rely=0.2, anchor = "center")
     status_dropdown_var = customtkinter.StringVar(value = "Select status")
     status_dropdown = customtkinter.CTkOptionMenu(master = change_frame,
-                                                  values = ["Accepted", "Rejected", "Under Review", "Waitlisted", "Deferred", "Committed", "Pending Scholarship Offer"],
+                                                  values = ["Accepted", "Rejected", "Under Review", "Waitlisted", "Deferred", "Committed", "Pending Scholarship"],
                                                   command = status_dropdown_callback,
                                                   variable = status_dropdown_var)
     status_dropdown.pack(pady=12, padx=10)
