@@ -116,11 +116,11 @@ for i in range(3):
             if exp == int(exp):
                 print("Level up!")
                 level += 1
-            attack *= (level-1) * 0.15
+            attack += (level-1) * 0.15
             attack = round(attack, 2)
-            health *= (level  - 1)*0.075
+            health += (level  - 1)*0.075
             health = round(health, 2)
-            defense *= (level - 1)*0.1
+            defense += (level - 1)*0.1
             defense = round(defense, 2)
         elif user_decision == "2":
             can_take_damage = False
