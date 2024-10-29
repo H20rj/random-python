@@ -1,6 +1,21 @@
 ## Acceptance tracker library
 
 import time
+from os.path import exists
+from datetime import datetime
+from os import system
+from sys import platform
+if platform == 'darwin':
+    if not exists("saves/version.txt"):
+        with open("saves/version.txt", "w") as f:
+            f.write(f"First Run on: {str(datetime.now())}")
+        system("python3 -m pip install -r saves/requirements.txt")
+if platform == 'win32':
+    if not exists("saves/version.txt"):
+        with open("saves/version.txt", "w") as f:
+            f.write(f"First Run on: {str(datetime.now())}")
+        system("py -m pip install -r saves/requirements.txt")
+
 from colorama import Fore
 import pwinput
 

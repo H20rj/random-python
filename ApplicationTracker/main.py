@@ -1,12 +1,17 @@
 #Main Acceptance tracker Script
 from library import *
 import time
-from colorama import Fore, init
+
 from os.path import exists
 from datetime import datetime
 from os import system
 from sys import platform
 # Initialize colorama for coloring in terminal
+
+
+
+from colorama import Fore, init
+
 init(autoreset=True)
 
 
@@ -75,14 +80,4 @@ def main():
 
 
 if __name__ == "__main__":
-    if platform == 'darwin':
-        if not exists("version.txt"):
-            with open("version.txt", "w") as f:
-                f.write(str(datetime.now()))
-            system("python3 -m pip install -r saves/requirements.txt")
-    if platform == 'win32':
-        if not exists("version.txt"):
-            with open("version.txt", "w") as f:
-                f.write(str(datetime.now()))
-            system("py -m pip install -r saves/requirements.txt")
     main()
