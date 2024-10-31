@@ -1,0 +1,48 @@
+# Basic Colors
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+
+# Gray Shades
+GRAY = (128, 128, 128)
+LIGHT_GRAY = (192, 192, 192)
+DARK_GRAY = (64, 64, 64)
+
+# Secondary Colors
+YELLOW = (255, 255, 0)
+CYAN = (0, 255, 255)
+MAGENTA = (255, 0, 255)
+PURPLE = (128, 0, 128)
+ORANGE = (255, 165, 0)
+BROWN = (165, 42, 42)
+
+# Nature Colors
+FOREST_GREEN = (34, 139, 34)
+SKY_BLUE = (135, 206, 235)
+SAND = (194, 178, 128)
+GRASS = (124, 252, 0)
+OCEAN = (0, 119, 190)
+
+# Pastel Colors
+PASTEL_PINK = (255, 209, 220)
+PASTEL_BLUE = (174, 198, 207)
+PASTEL_GREEN = (119, 221, 119)
+PASTEL_YELLOW = (253, 253, 150)
+PASTEL_PURPLE = (179, 158, 181)
+
+# Vibrant Colors
+CRIMSON = (220, 20, 60)
+TURQUOISE = (64, 224, 208)
+LIME = (50, 205, 50)
+GOLD = (255, 215, 0)
+ROYAL_BLUE = (65, 105, 225)
+
+# UI Colors
+SUCCESS = (40, 167, 69)
+WARNING = (255, 193, 7)
+DANGER = (220, 53, 69)
+INFO = (23, 162, 184)
+LIGHT = (248, 249, 250)
+DARK = (52, 58, 64)
