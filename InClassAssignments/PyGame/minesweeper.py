@@ -4,7 +4,7 @@
 import pygame
 import random
 import sys
-from typing import List, Tuple, Set
+from typing import Tuple, Set
 
 # Initialize Pygame
 pygame.init()
