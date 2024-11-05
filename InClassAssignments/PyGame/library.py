@@ -24,7 +24,7 @@ class Collectible:
         top_edge = self.y - 15
         bottom_edge = self.y + 15
 
-        if sself.visible and x1 <= left_edge <= x2 or x1 <= right_edge <= x2:
+        if self.visible and (x1 <= left_edge <= x2 or x1 <= right_edge <= x2):
             if y1 <= top_edge <= y2 or y1 <= bottom_edge <= y2:
                 print(f"Collision {self.x}, {self.y}")
                 self.visible = False
