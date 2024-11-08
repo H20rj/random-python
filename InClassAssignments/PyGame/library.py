@@ -30,3 +30,8 @@ class Collectible:
                 self.visible = False
                 return True
         return False
+
+
+def save(x: int, file: str):
+    with open(file, 'w') as f:
+        f.write(str(x))
