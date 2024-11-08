@@ -18,6 +18,7 @@ PURPLE = (128, 0, 128)
 ORANGE = (255, 165, 0)
 BROWN = (165, 42, 42)
 
+
 # Nature Colors
 FOREST_GREEN = (34, 139, 34)
 SKY_BLUE = (135, 206, 235)
