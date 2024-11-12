@@ -23,7 +23,7 @@ import pwinput
 ou_status = ''
 csu_status = ''
 cu_status = ''
-tt_status = ''
+tt_statxus = ''
 tr_status = ''
 du_status = ''
 mi_status = ''
