@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-nums = [27]  # Initialize the list of numbers
+nums = range(1, 5001, 2)  # Initialize the list of numbers
 
 all_sequences = []  # To store the results for plotting later
 
@@ -10,7 +10,7 @@ longest_sequence_length = 0
 
 for num in nums:  # Iterate through each number in the list
     num_id = int(num)  # Store the original number for printing later
-    print(f"Number: {num}")  # Print the initial number
+
 
     num_list = [num_id]  # Initialize the list to store the sequence
     current_length = 0  # To track the length of current sequence
@@ -24,9 +24,7 @@ for num in nums:  # Iterate through each number in the list
 
         num_list.append(int(num))  # Append the current num to the list as an integer
 
-    print(num_list)  # Print the generated sequence
-    print(f"Length of conjecture for {num_id} = {len(num_list) - 1}")  # Print the length of the sequence
-    print()  # Print an empty line for readability
+
 
     # Store the sequence for plotting
     all_sequences.append((num_id, num_list))
@@ -42,11 +40,10 @@ print(
 
 # Plotting the Collatz sequences
 plt.figure(figsize=(10, 6))
-
 for num_id, num_list in all_sequences:
     plt.plot(num_list, label=f"Start: {num_id}")
 
-plt.xlabel('Steps')
+plt.xlabel('Iterations')
 plt.ylabel('Value')
 plt.title('Collatz Conjecture Sequences')
 plt.legend()
