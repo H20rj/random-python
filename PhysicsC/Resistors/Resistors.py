@@ -1,5 +1,9 @@
-import time
+"""
+Used for calculating resistance. You can reset the resistance_save.txt file by running
+the resetResistors.py file.
+"""
 
+import time
 def series_resistors():
     global resistance_eq
     print("." * 20)
@@ -88,7 +92,6 @@ def main():
 
     time.sleep(0.5)
     print("Exiting...")
-
 
 
 if __name__ == "__main__":
