@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-nums = range(1, 5001, 2)  # Initialize the list of numbers
+nums = [27] # Initialize the list of numbers
 
 all_sequences = []  # To store the results for plotting later
 
