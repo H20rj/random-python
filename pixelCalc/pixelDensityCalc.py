@@ -60,7 +60,7 @@ Result: Text and images are impossibly sharp even under a magnifying glass; perf
 sleep(0.3)
 
 print()
-if ppi < 200:
+if ppi < 100:
     print("""Reminders:
     Key Notes for Monitors:
     Viewing distance matters: Higher PPI is only noticeable if you're close enough to perceive the difference.

@@ -5,6 +5,7 @@ from os.path import exists
 from datetime import datetime
 from os import system
 from sys import platform
+
 if platform == 'darwin':
     if not exists("saves/version.txt"):
         with open("saves/version.txt", "w") as f:
@@ -144,7 +145,7 @@ def load_status():
     global ou_status, csu_status, cu_status, tt_status, tr_status, du_status, mi_status
     try:
         with open('saves/status.txt', 'r') as file:
-            lines = file.readlines()
+            lines: list[str] = file.readlines()
             for line in lines:
                 if 'OU status' in line:
                     ou_status = line.split(':')[1].strip()

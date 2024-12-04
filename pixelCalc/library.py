@@ -7,7 +7,7 @@ def get_monitor_size() -> int or float:
             monitor_size1 = float(monitor_size1)
             return monitor_size1
 
-        except:
+        except ValueError:
             print("Incorrect, value must be a number. Try again>")
 
 

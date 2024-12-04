@@ -4,6 +4,9 @@ loss = False
 round_counter, enemy_wins, user_wins = 0, 0, 0
 from time import sleep
 from os import system
+
+
+
 print("*" * 60)
 print("Rock, Paper, Scissors! Face off against a random enemy!")
 print("*" * 60)
@@ -13,17 +16,18 @@ while not False:
 
     print(f"Round {round_counter}")
     print()
-    sleep(0.2)
+    sleep(0.1)
     print("Choose one below")
     print("   1. Rock")
     print("   2. Paper")
     print("   3. Scissors")
     print()
-    sleep(0.4)
+    sleep(0.2)
     user_choice = input('Enter choice (1/2/3): ')
 
     while user_choice not in ['1', '2', '3']:
         print("Invalid input. Input must be 1, 2, or 3.")
+        user_choice = input('Enter choice (1/2/3): ')
 
     if user_choice == '1':  # Rock
         print()
@@ -66,11 +70,22 @@ while not False:
             print("Enemy also through scissors. Tie!")
             round_counter -= 1
 
-    sleep(1.2)
-    print()
-    print("Score")
-    print(f"   You: {user_wins}")
-    print(f"   Enemy: {enemy_wins}")
-    print()
-    sleep(1)
-    system("clear")
+
+
+    if user_wins >= 3 and user_wins > enemy_wins:
+        print("You Win!")
+        break
+
+    elif enemy_wins >= 3 and enemy_wins > user_wins:
+        print("Enemy wins!")
+        break
+    else:
+        sleep(1.2)
+        print()
+        print("Score")
+        print(f"   You: {user_wins}")
+        print(f"   Enemy: {enemy_wins}")
+        print()
+        sleep(1)
+        system("clear")
+
