@@ -40,22 +40,17 @@ Usage
 
 1.  **Run the main script:**
 
-    bash
-
-    Copy code
-
-    `python statsCalc.py`
+        python statsCalc.py
 
 2.  **Input your data:**
 
     -   If it's the first time running the script, a `stats.txt` file will be created.
 
-    -   Open `stats.txt` and follow the instructions:
+-   Open `stats.txt` and follow the instructions:
 
-        -   Enter your list of numbers separated by commas on the second line.
+    -   Enter your list of numbers separated by commas on the second line.
 
-        Example:
-    
+    Example:
 
         Input list of numbers separated by a comma (a, b, c, d,...) below, and then run statsCalc.py:
 
@@ -65,30 +60,28 @@ Usage
 
 3.  **Run the script again to perform calculations:**
 
-
-    python statsCalc.py
+        python statsCalc.py
 
 4.  **View the results:**
 
     -   The statistical results will be appended to the `stats.txt` file below your input data.
 
         Example output:
+
+            Mean: 55.24
+            SD: 27.436
+            Minimum: 13
+            Q1: 31
+            Median: 56
+            Q3: 75
+            Maximum: 103
+            IQR: 44
+            Mode: 62
+            Range: 90
+            Sum: 1158
+            Outliers: [103]
     
-
-        Mean: 55.24
-        SD: 27.436
-        Minimum: 13
-        Q1: 31
-        Median: 56
-        Q3: 75
-        Maximum: 103
-        IQR: 44
-        Mode: 62
-        Range: 90
-        Sum: 1158
-        Outliers: [103]
-
-        Rerun statsCalc.py to reset the input file.
+            Rerun statsCalc.py to reset the input file.
 
 5.  **Reset for new calculations:**
 
