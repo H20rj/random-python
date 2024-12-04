@@ -1,13 +1,13 @@
 from statistics import mode, StatisticsError
 from os.path import exists
-
+from math import sqrt
 # Exit codes Guide:
 # 0 -- Successful
 # 1 -- ValueError or FileNotFoundError
 # 2 -- stats.txt file created
 # 3 -- stats.txt file reset
 
-#42, 17, 93, 56, 31, 84, 62, 19, 75, 40, 103, 28, 66, 51, 97, 13, 36, 88, 22, 69
+#     42, 17, 93, 56, 31, 84, 62, 19, 75, 40, 103, 28, 66, 51, 97, 13, 36, 88, 22, 69, 62
 def mean(nums: list[int]) -> float:
     """
         Description:
@@ -27,6 +27,26 @@ def mean(nums: list[int]) -> float:
     avg: float = sum(nums) / len(nums)
     return avg
 
+def standard_dev(nums: list[int]) -> float:
+    """
+        Description:
+        ___________
+        Calculates the standard deviation of a list
+        sigma = sqrt((sum(X - mu)^2) / N)
+
+        Parameters:
+        ___________
+        nums: list[int]
+            A list of integers from which to calculate the Standard deviation
+
+        Returns:
+        ________
+        float
+            The float point value of the SD
+    """
+    N = len(nums)
+    variance = sum((X - mean(nums)) ** 2 for X in nums) / N
+    return sqrt(variance)
 
 def range_list(nums: list[int]) -> int: # range = max - min
     """
@@ -179,11 +199,12 @@ def median(nums: list[int]) -> float:
         float
             The float point value of the median
     """
-    n = len(nums)
+    sorted_nums = sorted(nums)
+    n = len(sorted_nums)
     if n % 2 == 1:
-        return nums[n // 2]
+        return sorted_nums[n // 2]
     else:
-        return (nums[n // 2 - 1] + nums[n // 2]) / 2
+        return (sorted_nums[n // 2 - 1] + sorted_nums[n // 2]) / 2
 
 
 def outliers(nums: list[int]) -> list[int] or str:
@@ -313,6 +334,7 @@ def main() -> None:
     nums = read_file()
     output = (
         f"\nMean: {round(mean(nums), 2)} "
+        f"\nSD: {round(standard_dev(nums), 3)}"
         f"\nMinimum: {minimum(nums)}"
         f"\nQ1: {round(quartile1(nums))}"
         f"\nMedian: {round(median(nums), 2)}"
