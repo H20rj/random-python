@@ -1,6 +1,6 @@
 from statistics import mode, StatisticsError
 from os.path import exists
-from math import sqrt
+from math import sqrt, erf
 # Exit codes Guide:
 # 0 -- Successful
 # 1 -- ValueError or FileNotFoundError
@@ -32,6 +32,7 @@ def standard_dev(nums: list[int]) -> float:
         Description:
         ___________
         Calculates the standard deviation of a list
+
         sigma = sqrt((sum(X - mu)^2) / N)
 
         Parameters:
@@ -44,8 +45,8 @@ def standard_dev(nums: list[int]) -> float:
         float
             The float point value of the SD
     """
-    N = len(nums)
-    variance = sum((X - mean(nums)) ** 2 for X in nums) / N
+    n = len(nums)
+    variance = sum((X - mean(nums)) ** 2 for X in nums) / n
     return sqrt(variance)
 
 def range_list(nums: list[int]) -> int: # range = max - min
@@ -236,7 +237,17 @@ def outliers(nums: list[int]) -> list[int] or str:
     if not outliers_list:
         return 'None'
 
-    return outliers_list #list[int]
+    return outliers_list
+
+def normal_cdf(x: float, mu: float = 0, sigma: float = 1) -> float:
+    z = z_score(x, mu, sigma)
+    cdf: float = 0.5 * (1 + erf(z / sqrt(2)))
+    return cdf
+
+
+def z_score(x: float, mu: float = 0, sigma: float = 1):
+    z: float = (x - mu) / sigma
+    return z
 
 
 def init_file() -> None:
@@ -251,7 +262,7 @@ def init_file() -> None:
     """
     if not exists('stats.txt'):
         with open('stats.txt', 'w') as f:
-            f.write("Input list of numbers seperated by a comma (a, b, c, d,...) below, and then run statsCalc.py:\n\n"
+            f.write("Input list of numbers seperated by a comma cuh(a, b, c, d,...) below, and then run statsCalc.py:\n\n"
                     "Then, the statistics will be output below:\n")
         print("A 'stats.txt' file was just created. Please open it, and follow the instructions there.")
         exit(2)
@@ -272,10 +283,10 @@ def read_file() -> list[int]:
         Raises:
         _______
         ValueError
-            'No Input data'
-                raised when there is no input in line 2 of stats.txt
-            'No valid numbers found'
-                if there are no numbers in the user input in stats.txt
+             'No Input data'
+                  raised when there is no input in line 2 of stats.txt
+             'No valid numbers found'
+                  if there are no numbers in the user input in stats.txt
         FileNotFoundError
             If no file was ever created
 
@@ -297,6 +308,7 @@ def read_file() -> list[int]:
                         "Input list of numbers seperated by a comma (a, b, c, d,...) below, and then run statsCalc.py:\n\n"
                         "Then, the statistics will be output below:\n")
                     reset.flush()
+                    print("'stats.txt' file reset. File ready for reuse.")
                     exit(3)
 
             raw_input = lines[1].strip()
@@ -307,6 +319,7 @@ def read_file() -> list[int]:
 
             if not numbers:
                 raise ValueError("No valid numbers found")
+            print("File read successfully, outputting statistics.")
             return numbers
     except (FileNotFoundError, ValueError) as e:
         print(f"Error reading file: {e}")
@@ -322,6 +335,7 @@ def append_file(output: str) -> None:
     """
     with open('stats.txt', 'a') as f:
         f.write(f"{output}\n\nRerun statsCalc.py to reset the input file.")
+
 
 def main() -> None:
     """

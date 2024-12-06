@@ -1,4 +1,4 @@
-from calcLibrary import *
+from statsWebsite.calcLibrary import *
 
 
 if __name__ == "__main__":
