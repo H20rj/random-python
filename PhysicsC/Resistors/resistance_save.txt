@@ -1,1 +1,3 @@
-No resistors save yet. Please make one in resistors.py
+Most recent equivalent resistance:
+
+0.69 ohms
