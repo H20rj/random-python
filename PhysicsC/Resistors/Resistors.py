@@ -7,6 +7,7 @@ import time
 
 
 def series_resistors():
+    """For series"""
     global resistance_eq
     print("." * 20)
     print("Series Resistors")
