@@ -1,13 +1,21 @@
-STRING = "AADA BCAC DDBA BCBC CBCB DDAA".lower().replace(" ", "")
+"""Formats strings given in format AADCBAEA: answers"""
 
 
-answerDict: dict[str, str] = {}
-ITERATIONS = 0
-OUTPUT = ""
-TEMP_PUT = ""
-for i in STRING:
-    ITERATIONS += 1
-    answerDict[str(ITERATIONS)] = i
-    TEMP_PUT = f"{ITERATIONS}: {i}\n"
-    OUTPUT = OUTPUT + TEMP_PUT
-print(TEMP_PUT)
+def main() -> None:
+    """Main Function"""
+    string = "AADA BCAC DDBA BCBC CBCB DDAA".lower().replace(" ", "")
+
+    answer_dict: dict[str, str] = {}
+    iterations = 0
+    output = ""
+    temp_put = ""
+    for i in string:
+        iterations += 1
+        answer_dict[str(iterations)] = i
+        temp_put = f"{iterations}: {i}\n"
+        output = output + temp_put
+    print(temp_put)
+
+
+if __name__ == "__main__":
+    main()

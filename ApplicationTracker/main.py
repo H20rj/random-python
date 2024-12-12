@@ -1,16 +1,15 @@
-#Main Acceptance tracker Script
-from library import *
+# Main Acceptance tracker Script
 import time
-
-from os.path import exists
 from datetime import datetime
 from os import system
+from os.path import exists
 from sys import platform
-# Initialize colorama for coloring in terminal
-
-
 
 from colorama import Fore, init
+from library import *
+
+# Initialize colorama for coloring in terminal
+
 
 init(autoreset=True)
 
@@ -25,7 +24,9 @@ def main():
     load_status()
 
     while is_running and authenticate:
-        print(Fore.CYAN + """
+        print(
+            Fore.CYAN
+            + """
         ╔═════════════════════════════════════════╗
         ║       What would you like to do?        ║
         ╠═════════════════════════════════════════╣
@@ -36,7 +37,8 @@ def main():
         ║     5. Save and exit                    ║
         ╚═════════════════════════════════════════╝
 
-        """)
+        """
+        )
 
         user_choice = input(Fore.YELLOW + "Enter your choice (1/2/3/4/5): ")
         print("")
@@ -63,7 +65,6 @@ def main():
             time.sleep(1)
             save_status()
             print(Fore.CYAN + "Exiting...")
-            
 
         elif user_choice == "4":
             print(Fore.CYAN + "Resetting to default...")
@@ -76,7 +77,6 @@ def main():
             time.sleep(0.75)
             set_user_pw()
         time.sleep(0.75)
-
 
 
 if __name__ == "__main__":

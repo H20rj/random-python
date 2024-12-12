@@ -4,12 +4,14 @@ the resetResistors.py file.
 """
 
 import time
+
+
 def series_resistors():
     global resistance_eq
     print("." * 20)
     print("Series Resistors")
     print("." * 20)
-    print('')
+    print("")
     s_resistors_n = int(input("How many resistors do you have in series?: "))
     s_resistances = []
 
@@ -18,7 +20,9 @@ def series_resistors():
         s_resistances.append(resistance)
 
     resistance_eq = sum(s_resistances)
-    print(f"For your {s_resistors_n} resistors, the equivalent resistance is: {resistance_eq} ohms")
+    print(
+        f"For your {s_resistors_n} resistors, the equivalent resistance is: {resistance_eq} ohms"
+    )
 
 
 def parallel_resistors():
@@ -26,7 +30,7 @@ def parallel_resistors():
     print("." * 20)
     print("Parallel Resistors")
     print("." * 20)
-    print('')
+    print("")
     p_resistors_n = int(input("How many resistors do you have in parallel?: "))
 
     p_resistances = []
@@ -36,28 +40,31 @@ def parallel_resistors():
 
     resistance_eq = 1 / sum(1 / r for r in p_resistances)
 
-    print(f"For your {p_resistors_n} resistors, the equivalent resistance is: {resistance_eq:.2f} ohms")
+    print(
+        f"For your {p_resistors_n} resistors, the equivalent resistance is: {resistance_eq:.2f} ohms"
+    )
+
 
 resistance_eq = 0
+
+
 def main():
 
     def opening():
         print("." * 20)
         print("Resistors")
         print("." * 20)
-        print('')
+        print("")
         print("1. Series Resistors")
         print("2. Parallel Resistors")
         print("3. Exit")
-        print('')
-
+        print("")
 
     opening()
     user_choice = input("What would you like to do?: ")
     while user_choice not in ["1", "2", "3"]:
         print("Invalid input.")
         user_choice = input("What would you like to do?: ")
-
 
     while user_choice != "3":
         if user_choice == "1":
@@ -70,13 +77,17 @@ def main():
     success = False
     if resistance_eq != 0:
         try:
-            with open('resistance_save.txt', 'w') as f:
-                f.write(f"Most recent equivalent resistance:\n\n{resistance_eq:.2f} ohms")
+            with open("resistance_save.txt", "w") as f:
+                f.write(
+                    f"Most recent equivalent resistance:\n\n{resistance_eq:.2f} ohms"
+                )
             success = True
         except FileNotFoundError:
             print("save file not found. Creating one now...")
             print("maybe it was deleted!")
-            print("If you don't see a file named resistance_save.txt, please create one with that exact name.")
+            print(
+                "If you don't see a file named resistance_save.txt, please create one with that exact name."
+            )
             success = False
 
     elif resistance_eq == 0:
@@ -96,21 +107,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
