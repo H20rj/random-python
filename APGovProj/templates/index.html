@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote for Your Candidate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Who do <i>you</i> think should have won the election?</h1>
+        <form id="voteForm">
+            <label>
+                <input type="radio" name="candidate" value="Trump"> Trump
+            </label><br>
+            <label>
+                <input type="radio" name="candidate" value="Harris"> Harris
+            </label><br>
+            <button type="submit">Submit Vote</button>
+        </form>
+        <p id="status"></p>
+    </div>
+    <script>
+        document.getElementById('voteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch('/vote', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.status === 403) {  // User has already voted
+                    document.getElementById('status').textContent = "You've already voted.";
+                } else {
+                    return response.json();
+                }
+            })
+            .then(data => {
+                if (data && data.status === "success") {
+                    document.getElementById('status').textContent = "Vote submitted successfully!";
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

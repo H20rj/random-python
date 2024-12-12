@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Live Poll Results</h1>
+        <ul id="resultsList">
+            {% for candidate, count in vote_counts %}
+                <li>{{ candidate }}: {{ count }} votes</li>
+            {% endfor %}
+        </ul>
+        <button id="resetButton">Reset Votes</button> <!-- New Reset Button -->
+    </div>
+    <script>
+        // Fetch and update results every 5 seconds
+        function fetchResults() {
+            fetch('/api/results')
+            .then(response => response.json())
+            .then(data => {
+                const resultsList = document.getElementById('resultsList');
+                resultsList.innerHTML = '';
+                data.forEach(([candidate, count]) => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${candidate}: ${count} votes`;
+                    resultsList.appendChild(listItem);
+                });
+            });
+        }
+        setInterval(fetchResults, 5000); // Update every 5 seconds
+        fetchResults(); // Initial load
+
+        // Reset button functionality
+        document.getElementById('resetButton').addEventListener('click', function() {
+            fetch('/reset', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'reset') {
+                    fetchResults(); // Refresh results after reset
+                }
+            });
+        });
+    </script>
+</body>
+</html>
