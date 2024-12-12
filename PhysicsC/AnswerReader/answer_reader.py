@@ -1,7 +1,6 @@
 """Takes Answers given by classmates and reads them out
 version: 1
 """
-
 from os import system
 
 
