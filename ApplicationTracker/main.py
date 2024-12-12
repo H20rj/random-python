@@ -57,13 +57,13 @@ def main():
             print(Fore.GREEN + "Status is now:")
             print("")
             view_status()
-
+            is_running = False
         elif user_choice == "5":
             print(Fore.CYAN + "Saving...")
             time.sleep(1)
             save_status()
             print(Fore.CYAN + "Exiting...")
-            break
+            
 
         elif user_choice == "4":
             print(Fore.CYAN + "Resetting to default...")
