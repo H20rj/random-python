@@ -7,10 +7,10 @@ from os import system
 from sys import platform
 
 if platform == 'darwin':
-    if not exists("saves/version.txt"):
-        with open("saves/version.txt", "w") as f:
+    if not exists("~/Documents/Game-Design-Python/ApplicationTracker/saves/version.txt"):
+        with open("~/Documents/Game-Design-Python/ApplicationTracker/saves/version.txt", "w") as f:
             f.write(f"First Run on: {str(datetime.now())}")
-        system("python3 -m pip install -r saves/requirements.txt")
+        system("python3 -m pip install -r ~/Documents/Game-Design-Python/ApplicationTracker/saves/requirements.txt")
 if platform == 'win32':
     if not exists("saves/version.txt"):
         with open("saves/version.txt", "w") as f:
