@@ -3,9 +3,6 @@ from datetime import datetime
 from os import system
 from os.path import exists
 from sys import platform
-
-import customtkinter
-from colorama import Fore
 from library import (
     csu_status,
     cu_status,
@@ -15,6 +12,10 @@ from library import (
     tr_status,
     tt_status,
 )
+
+import customtkinter
+from colorama import Fore
+
 
 if platform == "darwin":
     if not exists("saves/version.txt"):

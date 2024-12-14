@@ -4,9 +4,9 @@ from datetime import datetime
 from os import system
 from os.path import exists
 from sys import platform
-
-from colorama import Fore, init
 from library import *
+from colorama import Fore, init
+
 
 # Initialize colorama for coloring in terminal
 
