@@ -12,6 +12,8 @@ while user_number < 0 or user_number > 30:
 
 try_counter = 1
 
+
+
 ## Start the guessing
 while not user_number == my_number:
     print("Thinking...")
