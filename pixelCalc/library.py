@@ -11,7 +11,7 @@ def get_monitor_size() -> int or float:
             print("Incorrect, value must be a number. Try again>")
 
 
-
+# hello :)
 
 
 def get_monitor_resolution() -> tuple[int, int]:
