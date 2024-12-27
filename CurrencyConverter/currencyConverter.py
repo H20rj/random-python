@@ -140,3 +140,5 @@ def main():
         converted_amount = user_amount * 7.297
         print(f"${user_amount:.2f} USD is equal to CN¥{converted_amount:.2f} Chinese Yuan.")
 
+if __name__ == "__main__":
+    main()
