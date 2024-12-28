@@ -1,144 +1,62 @@
-import math
-
-
 def main():
-    print("Welcome to the currency converter!")
-    print("Please enter the currency you want to convert to from USD:")
-    print("    1. British Pound")
-    print("    2. Euro")
-    print("    3. Indian Rupee")
-    print("    4. Australian Dollar")
-    print("    5. Swiss Franc")
-    print("    6. Canadian Dollar")
-    print("    7. Singapore Dollar")
-    print("    8. Malaysian Ringgit")
-    print("    9. Japanese Yen")
-    print("    10. Chinese Yuan")
-    user_choice = int(input("Enter your choice: "))
+    print("Welcome to currency converter, please select a currency:")
+    currency_data = {
+        "British Pound": {"rate": 0.795, "symbol": "£"},
+        "Euro": {"rate": 0.959, "symbol": "€"},
+        "Indian Rupee": {"rate": 85.391, "symbol": "₹"},
+        "Australian Dollar": {"rate": 1.609, "symbol": "A$"},
+        "Canadian Dollar": {"rate": 1.441, "symbol": "C$"},
+        "Singapore Dollar": {"rate": 1.340, "symbol": "S$"},
+        "Swiss Franc": {"rate": 0.902, "symbol": "CHF"},
+        "Malaysian Ringgit": {"rate": 4.472, "symbol": "RM"},
+        "Japanese Yen": {"rate": 157.872, "symbol": "¥"},
+        "Chinese Yuan": {"rate": 7.298, "symbol": "C¥"}
+    }
 
-    while user_choice < 1 or user_choice > 10:
-        print("Invalid choice. Please enter a valid choice.")
-        user_choice = int(input("Enter your choice: "))
+    currencies = list(currency_data.keys())
+    for index, currency in enumerate(currencies, start=1): # print possible currencies
+        print(f"    {index}. {currency}")
 
-    if user_choice == 1:
-        print("1 USD = 0.799 British Pounds")
-        while True:
-            user_amount = input("Input the amount of money you want to convert from USD:\n")
-            try:
-                user_amount = float(user_amount)
+    while True: ## get user choice
+        try:
+            user_choice = int(input("Enter your choice: "))
+            if 1 <= user_choice <= len(currencies):
+                target_currency = currencies[user_choice - 1]
                 break
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
-        converted_amount = user_amount * 0.799
-        print(f"${user_amount:.2f} USD is equal to £{converted_amount:.2f} British Pounds.")
+            else:
+                print("Invalid choice. Please enter a valid choice.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
 
-    elif user_choice == 2:
-        print("1 USD = 1.155 Euros")
-        while True:
-            user_amount = input("Input the amount of money you want to convert from USD:\n")
-            try:
-                user_amount = float(user_amount)
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
-        converted_amount = user_amount * 1.155
-        print(f"${user_amount:.2f} USD is equal to €{converted_amount:.2f} Euros.")
+    while True:
+        direction = input(
+            "Do you want to convert TO this currency or FROM this currency to USD? (T/F): ").strip().upper()
+        if direction in ["T", "F"]:
+            break
+        else:
+            print("Invalid input. Please enter either 'T' or 'F'.")
 
-    elif user_choice == 3:
-        print("1 USD = 85.343 Indian Rupees")
-        while True:
-            user_amount = input("Input the amount of money you want to convert from USD:\n")
-            try:
-                user_amount = float(user_amount)
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
-        converted_amount = user_amount * 85.343
-        print(f"${user_amount:.2f} USD is equal to ₹{converted_amount:.2f} Indian Rupees.")
+    currency_rate = currency_data[target_currency]["rate"]
+    currency_symbol = currency_data[target_currency]["symbol"]
 
-    elif user_choice == 4:
-        print("1 USD = 1.609 Australian Dollars")
-        while True:
-            user_amount = input("Input the amount of money you want to convert from USD:\n")
-            try:
-                user_amount = float(user_amount)
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
-        converted_amount = user_amount * 1.609
-        print(f"${user_amount:.2f} USD is equal to A${converted_amount:.2f} Australian Dollars.")
+    while True:
+        try:
+            if direction == "T":
+                user_amount = float(input(f"Enter the amount of money you want to convert to {target_currency} in USD: $"))
+            else:
+                user_amount = float(input(f"Enter the amount of money you want to convert from {target_currency} in USD: {currency_symbol}"))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
 
-    elif user_choice == 5:
-        print("1 USD = 0.899 Swiss Franc")
-        while True:
-            user_amount = input("Input the amount of money you want to convert from USD:\n")
-            try:
-                user_amount = float(user_amount)
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
-        converted_amount = user_amount * 0.899
-        print(f"${user_amount:.2f} USD is equal to {converted_amount:.2f} CHF Swiss Franc.")
+    if direction == "T":
+        converted_amount = user_amount * currency_rate
+        print(f"${user_amount} is equal to {converted_amount:.2f} {currency_symbol}.")
+    else:
+        converted_amount = user_amount / currency_rate
+        print(f"{user_amount} {currency_symbol} is equal to ${converted_amount:.2f}.")
 
-    elif user_choice == 6:
-        print("1 USD = 1.441 Canadian Dollars")
-        while True:
-            user_amount = input("Input the amount of money you want to convert from USD:\n")
-            try:
-                user_amount = float(user_amount)
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
-        converted_amount = user_amount * 1.441
-        print(f"${user_amount:.2f} USD is equal to C${converted_amount:.2f} Canadian Dollars.")
 
-    elif user_choice == 7:
-        print("1 USD = 1.340 Singapore Dollars")
-        while True:
-            user_amount = input("Input the amount of money you want to convert from USD:\n")
-            try:
-                user_amount = float(user_amount)
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
-        converted_amount = user_amount * 1.34
-        print(f"${user_amount:.2f} USD is equal to S${converted_amount:.2f} Singapore Dollars.")
-
-    elif user_choice == 8:
-        print("1 USD = 4.477 Malaysian Ringgit")
-        while True:
-            user_amount = input("Input the amount of money you want to convert from USD:\n")
-            try:
-                user_amount = float(user_amount)
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
-        converted_amount = user_amount * 4.477
-        print(f"${user_amount:.2f} USD is equal to RM{converted_amount:.2f} Malaysian Ringgit.")
-
-    elif user_choice == 9:
-        print("1 USD = 157.663 Japanese Yen")
-        while True:
-            user_amount = input("Input the amount of money you want to convert from USD:\n")
-            try:
-                user_amount = float(user_amount)
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
-        converted_amount = user_amount * 157.663
-        print(f"${user_amount:.2f} USD is equal to ¥{converted_amount:.2f} Japanese Yen.")
-
-    elif user_choice == 10:
-        print("1 USD = 7.297 Chinese Yuan")
-        while True:
-            user_amount = input("Input the amount of money you want to convert from USD:\n")
-            try:
-                user_amount = float(user_amount)
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
-        converted_amount = user_amount * 7.297
-        print(f"${user_amount:.2f} USD is equal to CN¥{converted_amount:.2f} Chinese Yuan.")
 
 if __name__ == "__main__":
     main()
