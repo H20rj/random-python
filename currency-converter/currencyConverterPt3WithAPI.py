@@ -1,8 +1,10 @@
 import requests
 from dotenv import load_dotenv
 import os
-
 load_dotenv()
+
+
+
 
 EXCHANGE_RATE_API_KEY = os.getenv("EXCHANGE_RATE_API_KEY")
 def get_currency_data(base_currency="USD"):
