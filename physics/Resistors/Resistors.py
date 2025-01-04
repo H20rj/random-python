@@ -50,7 +50,6 @@ resistance_eq = 0
 
 
 def main():
-
     def opening():
         print("." * 20)
         print("Resistors")
@@ -78,7 +77,7 @@ def main():
     success = False
     if resistance_eq != 0:
         try:
-            with open("resistance_save.txt", "w") as f:
+            with open("resistance-save.txt", "w") as f:
                 f.write(
                     f"Most recent equivalent resistance:\n\n{resistance_eq:.2f} ohms"
                 )
