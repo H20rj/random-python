@@ -5,8 +5,8 @@ from colors import *
 from os.path import exists
 pg.init()
 
-if exists('highscore'):
-    with open('highscore.txt', 'r') as file:
+if exists('high-score'):
+    with open('high-score.txt', 'r') as file:
         highscore = file.read()
 
 
@@ -135,6 +135,6 @@ while run:
     clock.tick(60)
     pg.display.update()
 highscore = 10
-if not exists('highscore.txt'):
-    save(highscore, "highscore.txt")
+if not exists('high-score.txt'):
+    save(highscore, "high-score.txt")
 pg.quit()
