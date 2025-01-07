@@ -1,3 +1,2 @@
-version.txt
-CurrencyConverter/.env
-.gitignore
+/CurrencyConverter/.env
+/.idea

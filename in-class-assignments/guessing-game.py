@@ -1,37 +1,33 @@
 ## import randint function from random module
 from random import randint
-import time
+
 ## Assign numbers for user
-my_number = randint(1, 30)
+target = randint(1, 30)
 
 
 user_number = int(input("Give me a number from 1 - 30: "))
 
-while user_number < 0 or user_number > 30:
-    user_number = int(input("follow the rules please. enter another number: "))
+while user_number < 1 or user_number > 30:
+    user_number = int(input("Follow the rules please. Enter a number: "))
 
-try_counter = 1
+try_counter = 0
 
 
 
 ## Start the guessing
-while not user_number == my_number:
+while user_number != target:
+    try_counter += 1
     print("Thinking...")
-    time.sleep(1.5)
-    print("Wrong!")
-    print("But where?")
-    time.sleep(0.5)
-    if user_number > my_number:
-        print("Too high! Idiot.")
-    if user_number < my_number:
-        print("Too low!That was a stupid guess.")
-    time.sleep(1.5)
+    if user_number > target:
+        print("Too high!")
+    if user_number < target:
+        print("Too low!")
     user_number = int(input("Try again! Enter a new number from 1 - 30: "))
     while user_number > 30 or user_number < 0:
         user_number = int(input("follow the rules please. enter another number: "))
-    try_counter += 1
+
 
 
 ## Tie the knot
 
-print(f"Good job! You got it in {str(try_counter)} tries!")
+print(f"Good job! You got it in {try_counter} tries!")
