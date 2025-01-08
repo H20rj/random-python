@@ -1,6 +1,6 @@
 import pygame as pg
 from random import randint
-from InClassAssignments.PyGame.library import Collectible, save
+from library import Collectible, save
 from colors import *
 from os.path import exists
 pg.init()
